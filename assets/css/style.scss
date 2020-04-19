@@ -1,0 +1,73 @@
+:root {
+  --background: url(./../images/bg.jpg);
+  --wave: url(./../images/wave.svg);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  .wave {
+    position: absolute;
+    width: 100vw;
+    height: 250px;
+    bottom: 0;
+    left: 0;
+    background: var(--wave);
+    animation: animate-reverse 10s linear infinite;
+  }
+
+  .wave:before {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 250px;
+    top: 0;
+    left: 0;
+    background: var(--wave);
+    opacity: 0.4;
+    animation: animate 10s linear infinite;
+  }
+
+  .wave:after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 250px;
+    top: 0;
+    left: 0;
+    background: var(--wave);
+    opacity: 0.6;
+    animation-delay: -5s;
+    animation: animate 20s linear infinite;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 1280px;
+  }
+}
+
+@keyframes animate-reverse {
+  0% {
+    background-position: 1280px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
